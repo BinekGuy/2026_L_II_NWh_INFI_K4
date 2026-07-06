@@ -1,1 +1,4 @@
-ZJADŁAM_KOD_I_NIE_DZIAŁAM
+from hello_world import app
+
+if __name__ == "__main__":
+    app.run()
