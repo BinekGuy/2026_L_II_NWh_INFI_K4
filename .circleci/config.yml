@@ -4,16 +4,13 @@ jobs:
   build-and-test:
     machine:
       image: ubuntu-2004:current
+      docker_layer_caching: true
     steps:
       - checkout
       - run: make deps
       - run: make lint
       - run: make test
-      - run: make docker_build
-      - run: |
-          echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-          docker tag hello-world-printer mlibertowska/hello-world-printer:latest
-          docker push mlibertowska/hello-world-printer:latest
+      - run: make docker_push
 
 workflows:
   basic:
