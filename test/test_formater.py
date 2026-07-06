@@ -1,3 +1,5 @@
+raise Exception("Wymuszony blad testu")
+
 from hello_world.formater import plain_text_upper_case
 import unittest
 
